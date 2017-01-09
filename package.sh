@@ -12,7 +12,7 @@ echo "+ Building for ARM"
 # This is the buildbot we used to run, but its broken right now
 #./swift/utils/build-script --preset=buildbot_linux_armv7 install_destdir=${INSTALL_DIR} installable_package=${PACKAGE}
 
-./swift/utils/build-script --build-subdir buildbot_linux -R --lldb --llbuild --xctest --swiftpm --foundation --libdispatch -- --install-libdispatch --install-foundation --install-swift --install-lldb --install-llbuild --install-xctest --install-swiftpm --install-prefix=/usr '--swift-install-components=autolink-driver;compiler;clang-builtin-headers;stdlib;swift-remote-mirror;sdk-overlay;dev' --build-swift-static-stdlib --build-swift-static-sdk-overlay --skip-test-lldb --install-destdir=${INSTALL_DIR} --installable-package=${PACKAGE}
+./swift/utils/build-script --build-subdir buildbot_linux -R --lldb --llbuild --xctest --swiftpm --foundation --libdispatch -- --install-libdispatch --install-foundation --install-swift --install-lldb --install-llbuild --install-xctest --install-swiftpm --install-prefix=/opt/swift '--swift-install-components=autolink-driver;compiler;clang-builtin-headers;stdlib;swift-remote-mirror;sdk-overlay;dev' --build-swift-static-stdlib --build-swift-static-sdk-overlay --skip-test-lldb --install-destdir=${INSTALL_DIR} --installable-package=${PACKAGE}
 
 echo "+ Fixing up the install package for ARM"
 cp -R swift-corelibs-libdispatch/dispatch/ ${INSTALL_DIR}/usr/lib/swift
